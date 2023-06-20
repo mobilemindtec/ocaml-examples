@@ -1,0 +1,24 @@
+{
+  "name": "helloworld",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "type": "module", 
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "esbuild-build": "node esbuild.config.js",
+    "esbuild-watch": "node esbuild.config.js -w",
+    "dune-build-watch": "dune build -w",
+    "dune-build": "dune build",
+    "dev": "./wdev"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "^0.17.19",
+    "esbuild-serve": "^1.0.1"
+  }
+}

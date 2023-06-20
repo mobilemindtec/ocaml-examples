@@ -1,0 +1,22 @@
+#!/bin/bash
+
+trap ctrl_c INT
+
+
+ctrl_c() {
+    echo "**CTRL-C"
+    stop_node
+    exit 0
+}
+
+stop_node() {
+    if ps -p $PID > /dev/null
+    then
+        kill -9 $PID
+    fi
+}
+
+node esbuild.config.js -w &
+PID=$!
+echo "ESBUILD PID=$PID"
+dune build -w

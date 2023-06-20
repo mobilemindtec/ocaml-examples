@@ -1,0 +1,5 @@
+(library
+ (name lib) 
+ (modes melange)
+ (melange.runtime_deps "assets/raw/data.txt")
+ (preprocess (pps melange.ppx)))

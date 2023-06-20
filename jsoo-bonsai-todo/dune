@@ -1,0 +1,55 @@
+(executables
+ (names main)
+ (libraries 
+    js_of_ocaml-lwt 
+    bonsai
+    bonsai.web
+    bonsai.web_ui_form
+    ppx_typed_fields.typed_variants_lib
+    ppx_typed_fields.typed_fields_lib
+    bonsai.extra
+    )
+ (modes js)
+ (preprocess
+  (pps 
+    js_of_ocaml-ppx 
+    ppx_jane
+    ppx_typed_fields 
+    ppx_css)))  
+
+
+(rule
+ (targets main.min.css)
+ (deps
+   (:src ./public/assets/css/main.sass))
+ (action (run %{bin:sass} --load-path ./public/assets/css %{src} %{targets})))
+
+(rule
+ (targets index.html)
+ (deps
+   (:src ./public/index.html))
+ (action 
+  (run %{bin:cp} %{src} %{targets})))
+
+(rule
+ (alias all)
+ (deps (sandbox always) index.html) ; main.min.css
+ (targets (dir dist))
+ (action
+  (progn
+   (bash "mkdir -p dist/assets/{css,js}")
+   (bash "cp index.html ./dist/")
+   ;(bash "cp main.min.css ./dist/assets/css/")   
+)))
+
+
+;(ocamllex wikicreole)
+;
+;(rule
+; (targets main.bc.js)
+; (action
+;  (run %{bin:js_of_ocaml} --source-map %{dep:main.bc} -o %{targets} --pretty)))
+;
+;(alias
+; (name default)
+; (deps main.bc.js))

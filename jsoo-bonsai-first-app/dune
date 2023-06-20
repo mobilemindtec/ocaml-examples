@@ -1,0 +1,30 @@
+(executables
+ (names main)
+ (libraries 
+    js_of_ocaml-lwt 
+    bonsai
+    bonsai.web
+    ;bonsai.web_ui_form
+    ;ppx_typed_fields.typed_variants_lib
+    ;ppx_typed_fields.typed_fields_lib
+    ;bonsai.extra
+    )
+ (modes js)
+ (preprocess
+  (pps 
+    js_of_ocaml-ppx 
+    ppx_jane
+    ppx_typed_fields 
+    ppx_css)))  
+
+
+;(ocamllex wikicreole)
+;
+;(rule
+; (targets main.bc.js)
+; (action
+;  (run %{bin:js_of_ocaml} --source-map %{dep:main.bc} -o %{targets} --pretty)))
+;
+;(alias
+; (name default)
+; (deps main.bc.js))

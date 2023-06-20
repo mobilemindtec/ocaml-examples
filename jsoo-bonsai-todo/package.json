@@ -1,0 +1,26 @@
+{
+  "name": "helloworld",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "esbuild-build": "node esbuild.config.js",
+    "esbuild-watch": "node esbuild.config.js -w",
+    "dune-build-watch": "dune build -w",
+    "dune-build": "dune build",
+    "dev": "./wdev"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@chialab/esbuild-plugin-html": "^0.17.2",
+    "esbuild": "^0.17.19",
+    "esbuild-plugin-copy": "^2.1.1",
+    "esbuild-serve": "https://github.com/mobilemindtec/esbuild-serve.git"
+  }
+}
