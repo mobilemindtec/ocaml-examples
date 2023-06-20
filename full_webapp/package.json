@@ -1,0 +1,19 @@
+{
+  "name": "full_webapp",
+  "version": "0.1.0",
+  "scripts": {
+    "clean": "cd ./client && bsb -clean-world",
+    "build-client": "cd ./client && bsb -make-world",
+    "webpack": "webpack",
+    "watch": "npm run webpack watch & cd ./client && bsb -make-world -w",
+    "start": "cd ./web && esy b dune exec ./src/App.exe",
+    "install": "cd ./client && npm install && cd ../web && esy install",
+    "build-server-main": "cd ./web && esy b dune build ./src/App.exe",
+    "build-server-test": "echo \"Tests not yet implemented\"",
+    "build-server": "npm run build-server-main && npm run build-server-test"
+  },
+  "devDependencies": {
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
