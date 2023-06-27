@@ -18,9 +18,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@chialab/esbuild-plugin-html": "^0.17.2",
-    "esbuild": "^0.17.19",
-    "esbuild-plugin-copy": "^2.1.1",
-    "esbuild-serve": "https://github.com/mobilemindtec/esbuild-serve.git"
+    "esbuild": "^0.17.19"
   }
 }

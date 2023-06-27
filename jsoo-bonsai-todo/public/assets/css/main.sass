@@ -8,10 +8,9 @@ body
 .todos
   position: relative
   text-align: center
-  width: 450px
+  width: 550px
   margin-left: auto
-  margin-right: auto 
-
+  margin-right: auto     
   h1
     text-align: center
     color: rgba(175, 47, 47, 0.15)
@@ -19,82 +18,144 @@ body
     margin: 20px 0 10px
     font-weight: 100
 
-  input.todo-new
-    border: none
-    font-size: 24px
-    position: relative
-    margin-left: auto
-    margin-right: auto
-    width: 450px
-    padding: 16px 16px 16px 60px
-    text-align: center
-    background: #fff
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1)
-    color: #4d4d4d
-    box-sizing: border-box
-
-    &:focus
+  .todos-inner
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),0 25px 50px 0 rgba(0, 0, 0, 0.1)
+    input.todo-new
       border: none
+      font-size: 24px
+      position: relative
+      margin-left: auto
+      margin-right: auto    
+      width: 100%
+      padding: 16px 16px 16px 60px
+      text-align: center
+      background: #fff
+      box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03)
+      color: #4d4d4d
+      box-sizing: border-box
 
-    &::placeholder
-      font-style: italic
-      font-weight: 300
-      color: #bbbaba
+      &:focus, &:focus-visible        
+        border: none
+      
+        
 
-.todo-item
-  text-align: left
-  padding: 10px 5px
-  background: #fff
-  border-left: 1px  solid #dfdfdf
-  border-bottom: 1px  solid #dfdfdf
-  border-right: 1px  solid #dfdfdf
-  &.completed
-    .title
-      text-decoration: line-through
-.checkmark-container
-  position: relative
-  padding-left: 35px
-  margin-bottom: 12px
-  cursor: pointer
-  font-size: 22px
+      &::placeholder
+        font-style: italic
+        font-weight: 300
+        color: #bbbaba
+    .todo-items
+      border-top: 1px solid #e6e6e6      
+      .todo-item
+        text-align: left
+        padding: 10px 5px
+        background: #fff      
+        border-left: 1px  solid #dfdfdf
+        border-bottom: 1px  solid #dfdfdf
+        border-right: 1px  solid #dfdfdf  
+        &.completed
+          .title
+            text-decoration: line-through
+        .btn-remove
+          display: none
+          background: transparent
+          border: none
+          font-size: 30px
+          position: absolute
+          right: 10px
+          margin: auto 0
+          color: rgba(175, 47, 47, 0.5)
+          transition: color 0.2s ease-out
+          &:after
+            content: '×'
+        &:hover .btn-remove
+          display: inline
+          transition: color 0.2s ease-out
 
-  input
-    position: absolute
-    opacity: 0
-    cursor: pointer
-    height: 0
-    width: 0
+      .checkmark-container
+        position: relative
+        padding-left: 35px
+        margin-bottom: 12px
+        cursor: pointer
+        font-size: 22px
+
+        input
+          position: absolute
+          opacity: 0
+          cursor: pointer
+          height: 0
+          width: 0
 
 
-.checkmark
-  position: absolute
-  top: 0
-  left: 0
-  height: 25px
-  width: 25px
-  background-color: #eee
-  border-radius: 13px
+      .checkmark
+        position: absolute
+        top: 0
+        left: 0
+        height: 25px
+        width: 25px
+        background-color: #eee
+        border-radius: 13px
 
-.checkmark-container
-  &:hover input ~ .checkmark
-    background-color: #ccc
+      .checkmark-container
+        &:hover input ~ .checkmark
+          background-color: #ccc
 
-  input:checked ~ .checkmark
-    background-color: #ff0a54
+        input.checked ~ .checkmark
+          background-color: #ff0a54
 
-  .checkmark:after
-    content: ""
-    position: absolute
-    display: none
-    left: 9px
-    top: 5px
-    width: 5px
-    height: 10px
-    border: solid white
-    border-width: 0 3px 3px 0
-    -webkit-transform: rotate(45deg)
-    -ms-transform: rotate(45deg)
-    transform: rotate(45deg)
+        .checkmark:after
+          content: ""
+          position: absolute
+          display: none
+          left: 9px
+          top: 5px
+          width: 5px
+          height: 10px
+          border: solid white
+          border-width: 0 3px 3px 0
+          -webkit-transform: rotate(45deg)
+          -ms-transform: rotate(45deg)
+          transform: rotate(45deg)
 
-  input:checked ~ .checkmark:after
-    display: block
+        input.checked ~ .checkmark:after
+          display: block
+    
+  .todo-bottom
+    background: #fff
+    padding: 10px
+    border-left: 1px  solid #dfdfdf
+    border-bottom: 1px  solid #dfdfdf
+    border-right: 1px  solid #dfdfdf  
+    display: flex   
+    justify-content: space-evenly
+    position: relative
+    &:before
+      content: ''
+      position: absolute
+      right: 0
+      bottom: 0
+      left: 0
+      height: 50px
+      overflow: hidden
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2)
+    .todo-count
+      text-align: left
+      width: 20%
+    .todo-actions      
+      z-index: 999
+      width: 40%
+      display: flex   
+      justify-content: space-evenly
+      .todo-action
+        padding: 3px 5px
+        color: #4d4d4d
+        background: transparent
+        border-radius: 3px
+        border: none
+        cursor: pointer
+        &.active
+          border: 1px solid rgba(175, 47, 47, 0.3)
+    .todo-clean
+      z-index: 999
+      text-align: right
+      cursor: pointer
+      width: 20%

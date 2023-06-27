@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import { copy } from 'esbuild-plugin-copy';
 import * as esbuild from 'esbuild'
 
 const isWatch = process.argv.includes('-w');
